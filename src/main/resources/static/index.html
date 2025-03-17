@@ -74,7 +74,7 @@
                     <div class="panel-body">
 						<button class="btn btn-danger"> Limpar Herois </button>
                         <hr />
-                        <table class="table table-hover">
+                        <table class="table table-hover" id="tbl_hero">
                             <thead>
                                 <tr>
                                     <th>Nome</th>
@@ -86,7 +86,6 @@
                             <tbody>
                             </tbody>
                             <tfoot>
-
                             </tfoot>
                         </table>
 
@@ -96,11 +95,14 @@
             </section>
         </main>
         <script>
+            let listGroups = [];
             const processListGroups = (list) => {
                 let panel_groups = document.querySelector("#panel_groups");
 
+                listGroups = list;
+
                 panel_groups.innerHTML = "";
-                list.forEach(item => {
+                listGroups.forEach(item => {
                     const label = document.createElement("label");
                     const input = document.createElement("input");
 
@@ -108,7 +110,7 @@
                     input.name = "grupo";
                     input.value = item.grupo;
 
-                    const textNode = document.createTextNode(` ${item.nome}`);
+                    const textNode = document.createTextNode(` ${item.name}`);
 
                     label.appendChild(input);
                     label.appendChild(textNode);
@@ -122,6 +124,38 @@
             api.fetchListGroup().then(processListGroups)
 
             const processListHero = (list) => {
+
+                let tbl_hero = document.querySelector("#tbl_hero tbody");
+
+                tbl_hero.innerHTML = "";
+                list.forEach(item => {
+                    const tr = document.createElement("tr");
+
+                    // name
+                    const tdName = document.createElement("td");
+                    tdName.innerText = item.name;
+                    tr.appendChild(tdName);
+
+                    // email
+                    const tdEmail = document.createElement("td");
+                    tdEmail.innerText = item.email;
+                    tr.appendChild(tdEmail);
+
+                    // telefone
+                    const tdTelefone = document.createElement("td");
+                    tdTelefone.innerText = item.telefone;
+                    tr.appendChild(tdTelefone);
+
+                    // Grupo
+                    let grupo = listGroups.find(grup => grup.grupo == item.grupo);
+                    console.log(grupo)
+                    const tdGrupo = document.createElement("td");
+                    tdGrupo.innerText = grupo.name;
+                    tr.appendChild(tdGrupo);
+
+                    tbl_hero.appendChild(tr);
+
+                });
 
             }
 
@@ -142,7 +176,13 @@
                 .fetchSaveHero(data)
                 .then(res=>{
 
-                    console.log("Res: ", res)
+                    if(!res.errors){
+
+                        console.log("Data: ", res);
+
+                        api.fetchListHero().then(processListHero)
+
+                    } else console.error("Error: ", res.errors);
 
                 }).catch(e => console.warn(e) )
 

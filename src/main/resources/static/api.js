@@ -5,9 +5,7 @@ var api = {
     fetchListGroup: async () => {
         try {
             const response = await fetch( api.host + '/api/hero/group');
-            if (!response.ok) {
-                throw new Error('Erro ao buscar a lista de grupos');
-            }
+
             return await response.json();
         } catch (error) {
             console.error(error);
@@ -19,10 +17,9 @@ var api = {
     fetchListHero: async () => {
         try {
             const response = await fetch( api.host + '/api/hero');
-            if (!response.ok) {
-                throw new Error('Erro ao buscar a lista de heróis');
-            }
+
             return await response.json();
+
         } catch (error) {
             console.error(error);
             return null;
@@ -39,10 +36,9 @@ var api = {
                 },
                 body: JSON.stringify(data)
             });
-            if (!response.ok) {
-                throw new Error('Erro ao salvar o herói');
-            }
+
             return await response.json();
+
         } catch (error) {
             console.error(error);
             return null;

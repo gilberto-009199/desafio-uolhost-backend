@@ -3,7 +3,7 @@ package com.gilberto009199.uolhost.desafio_backend.responses;
 import com.gilberto009199.uolhost.desafio_backend.enums.Grupo;
 
 public record GrupoResponse(
-        String nome,
+        String name,
         Grupo grupo
 ) {
     public GrupoResponse(Grupo grupo) {
