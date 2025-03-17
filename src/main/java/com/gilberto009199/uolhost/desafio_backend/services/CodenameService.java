@@ -28,7 +28,7 @@ public class CodenameService {
                         !listCodenameInUse.contains(codename)
                 ).toList();
 
-        if(listCodenameAvailable.isEmpty())throw new RuntimeException("Apelidos dp Grupo Esgotados!!");
+        if(listCodenameAvailable.isEmpty())throw new RuntimeException("Apelidos do Grupo Esgotados!!");
 
         return listCodenameAvailable.get(
                 new Random().nextInt(

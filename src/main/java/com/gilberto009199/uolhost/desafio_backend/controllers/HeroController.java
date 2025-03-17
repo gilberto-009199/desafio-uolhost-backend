@@ -6,6 +6,7 @@ import com.gilberto009199.uolhost.desafio_backend.requests.HeroRequest;
 import com.gilberto009199.uolhost.desafio_backend.responses.HeroResponse;
 import com.gilberto009199.uolhost.desafio_backend.services.HeroService;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,8 +34,12 @@ public class HeroController {
 
     @PostMapping
     public ResponseEntity<?> save(@RequestBody @Valid HeroRequest request){
+
         var entity = heroService.create(request);
-        return ResponseEntity.ok(HeroResponse.of(entity));
+
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(HeroResponse.of(entity));
     }
 
     @DeleteMapping
