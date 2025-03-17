@@ -6,9 +6,7 @@
 <img src="home.png" width="512px" alt="Tela Inicial">
 Versão final, aplicando as funções da API.
 
-More: `+ Docker` `+ Tests`
- 
-<!-- More: `+ Logging`  `+ Swagger` -->
+More: `+ Docker` `+ Tests` `+ Logging` `+ FlyWay Migration`
 
 
 
