@@ -5,23 +5,28 @@ import com.gilberto009199.uolhost.desafio_backend.requests.HeroRequest;
 import jakarta.annotation.Generated;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "hero")
 public class HeroEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
 
     @Column
     private String telefone;
+
+    @NotBlank
+    @Column(unique = true)
+    private String codename;
 
     @Column
     @Enumerated(value = EnumType.STRING)
@@ -64,4 +69,11 @@ public class HeroEntity {
         this.grupo = grupo;
         return this;
     }
+
+    public String getCodename(){ return this.codename; }
+    public HeroEntity setCodename(String codename){
+        this.codename = codename;
+        return this;
+    }
+
 }

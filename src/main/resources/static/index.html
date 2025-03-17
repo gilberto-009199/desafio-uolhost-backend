@@ -16,9 +16,11 @@
                     </div>
 
                     <div class="panel-body">
+
+                        <div id="feedback" class="alert" role="alert" style="display: none;"></div>
+
 						<fieldset>
                             <legend> Preencha seus dados </legend>
-                            
                             <div class="form-group cold-sm-12">
                                 <label for="name">Nome:</label>
                                 <input type="text" name="name" id="name" class="form-control" required>
@@ -72,12 +74,13 @@
                         <h4> Herois Cadastrados: </h4>
                     </div>
                     <div class="panel-body">
-						<button class="btn btn-danger"> Limpar Herois </button>
+						<button class="btn btn-danger" onclick="api.fetchDeleteAllHeroes().then(() => api.fetchListHero().then(processListHero))"> Limpar Herois </button>
                         <hr />
                         <table class="table table-hover" id="tbl_hero">
                             <thead>
                                 <tr>
                                     <th>Nome</th>
+                                    <th>Codename</th>
                                     <th>Email</th>
                                     <th>Telefone</th>
                                     <th>Grupo</th>
@@ -136,6 +139,11 @@
                     tdName.innerText = item.name;
                     tr.appendChild(tdName);
 
+                    // codename
+                    const tdCodename = document.createElement("td");
+                    tdCodename.innerText = item.codename;
+                    tr.appendChild(tdCodename);
+
                     // email
                     const tdEmail = document.createElement("td");
                     tdEmail.innerText = item.email;
@@ -147,7 +155,7 @@
                     tr.appendChild(tdTelefone);
 
                     // Grupo
-                    let grupo = listGroups.find(grup => grup.grupo == item.grupo);
+                    let grupo = listGroups.find(grup => grup.name === item.grupo.name);
                     console.log(grupo)
                     const tdGrupo = document.createElement("td");
                     tdGrupo.innerText = grupo.name;
@@ -176,17 +184,37 @@
                 .fetchSaveHero(data)
                 .then(res=>{
 
-                    if(!res.errors){
+                    if(!res.errors && !res.error){
 
-                        console.log("Data: ", res);
+                        showMessage(" Cadastro Finalizado! ");
 
                         api.fetchListHero().then(processListHero)
 
-                    } else console.error("Error: ", res.errors);
+                        return;
+                    }
+
+
+                    let errors =  res.errors?.map(e => "+ "+e.defaultMessage ).join('\n') || res.message;
+
+                    console.log( errors );
+                    showMessage(" Erros: \n "+ errors , true);
+
 
                 }).catch(e => console.warn(e) )
 
             }
+
+            const showMessage = ( msg, danger = false ) => {
+                let feedback = document.querySelector("#feedback");
+                feedback.style.display = "block";
+
+                feedback.classList.remove('alert-success', 'alert-danger');
+                feedback.classList.add(danger ? 'alert-danger' : 'alert-success');
+
+                feedback.innerText = msg;
+
+            }
+
         </script>
 
     </body>
