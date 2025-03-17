@@ -76,6 +76,7 @@ public class CodenameRepository {
                 .toEntity(String.class);
 
         if (!response.getStatusCode().is2xxSuccessful()) {
+            logger.debug("stage=end method=fetchJson, throw {}", url);
             throw new RuntimeException("Erro ao buscar JSON da URL: " + url);
         }
 
@@ -89,6 +90,7 @@ public class CodenameRepository {
                 .toEntity(String.class);
 
         if (!response.getStatusCode().is2xxSuccessful()) {
+            logger.debug("stage=end method=fetchXml, throw {}", url);
             throw new RuntimeException("Erro ao buscar XML da URL: " + url);
         }
 
@@ -112,6 +114,7 @@ public class CodenameRepository {
             LigaDaJustica liga = (LigaDaJustica) unmarshaller.unmarshal(new StringReader(xml));
             return liga.getCodinomes();
         } catch (JAXBException e) {
+            logger.debug("stage=end method=extractCodenamesFromXml, throw {}", e);
             throw new RuntimeException("Erro ao processar XML", e);
         }
     }
