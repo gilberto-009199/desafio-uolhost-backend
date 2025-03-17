@@ -1,13 +1,14 @@
 
 # Desafio UolHost Backend
 
+[![Java CI with Maven](https://github.com/gilberto-009199/desafio-uolhost-backend/actions/workflows/maven.yml/badge.svg)](https://github.com/gilberto-009199/desafio-uolhost-backend/actions/workflows/maven.yml)
 
 <img src="home.png" width="512px" alt="Tela Inicial">
 Versão final, aplicando as funções da API.
 
 More: `+ Docker` `+ Tests`
  
-<!-- More: `+ Tests` `+ Health Check` `+ Logging`  `+ Swagger` -->
+<!-- More: `+ Logging`  `+ Swagger` -->
 
 
 
