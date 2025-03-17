@@ -1,3 +1,17 @@
+
+# Desafio UolHost Backend
+
+
+<img src="home.png" width="512px" alt="Tela Inicial">
+Versão final, aplicando as funções da API.
+
+More: `+ Docker`
+ 
+<!-- More: `+ Tests` `+ Health Check` `+ Logging`  `+ Swagger` -->
+
+
+
+
 Sobre o UOL HOST
 ===============
 O UOL HOST oferece soluções em hospedagem de sites, loja virtual, loja de aplicativos, revenda de hospedagem, registro de domí­nios, e-mail marketing, cloud computing, entre outros, contando com a confiabilidade e a escalabilidade de uma moderna infraestrutura de TI, composta por uma das maiores redes de Data Centers da América Latina.
