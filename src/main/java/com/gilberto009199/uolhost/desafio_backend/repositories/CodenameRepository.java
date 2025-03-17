@@ -2,6 +2,7 @@ package com.gilberto009199.uolhost.desafio_backend.repositories;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.gilberto009199.uolhost.desafio_backend.controllers.GroupController;
 import com.gilberto009199.uolhost.desafio_backend.enums.Grupo;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -12,6 +13,8 @@ import jakarta.xml.bind.Unmarshaller;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementWrapper;
 import jakarta.xml.bind.annotation.XmlRootElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
@@ -26,6 +29,8 @@ import static com.gilberto009199.uolhost.desafio_backend.enums.Grupo.*;
 
 @Repository
 public class CodenameRepository {
+
+    public static final Logger logger = LoggerFactory.getLogger(CodenameRepository.class);
 
     private final RestClient restClient;
     private final ObjectMapper mapper;
@@ -42,10 +47,17 @@ public class CodenameRepository {
     }
 
     public List<String> listInGroup(Grupo grupo){
-        return switch (grupo) {
+
+        logger.debug("stage=init method=listInGroup {}", grupo);
+
+        var listCodename =  switch (grupo) {
             case vingadores -> listVingadores();
             case ligaDaJustica -> listLigaDaJustica();
         };
+
+        logger.debug("stage=end method=listInGroup {}", listCodename);
+
+        return listCodename;
     }
     private List<String> listVingadores() {
         String json = fetchJson(vingadoresUri);
