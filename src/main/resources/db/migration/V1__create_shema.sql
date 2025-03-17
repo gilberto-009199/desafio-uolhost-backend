@@ -7,3 +7,5 @@ CREATE TABLE hero (
 );
 
 CREATE INDEX idx_hero_email ON hero(email);
+
+ALTER TABLE hero ADD CONSTRAINT unique_email UNIQUE (email);
