@@ -1,15 +1,18 @@
 
 # Desafio UolHost Backend
 
-<img align="right" src="./assets/spring16x16.svg" alt="Spring Boot" width="32px"/>
-<img align="right" src="./assets/docker16x16.svg" alt="Docker" width="32px"/>
-<img align="right" src="./assets/bootstrap.svg" alt="Bootstrap" width="32px"/>
+
 
 
 [![Java CI with Maven](https://github.com/gilberto-009199/desafio-uolhost-backend/actions/workflows/maven.yml/badge.svg)](https://github.com/gilberto-009199/desafio-uolhost-backend/actions/workflows/maven.yml)
 
 <img src="home.png" width="512px" alt="Tela Inicial">
 
+
+
+<img align="right" src="./assets/spring16x16.svg" alt="Spring Boot" width="32px"/>
+<img align="right" src="./assets/docker16x16.svg" alt="Docker" width="32px"/>
+<img align="right" src="./assets/bootstrap.svg" alt="Bootstrap" width="32px"/>
 Sistema de cadastro de jogadores, integrado com json e XML para gerar codinomes
 
 More: `+ Docker` `+ Tests` `+ Logging` `+ FlyWay Migration`
