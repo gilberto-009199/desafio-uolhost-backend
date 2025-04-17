@@ -13,7 +13,8 @@
 <img align="right" src="./assets/spring16x16.svg" alt="Spring Boot" width="32px"/>
 <img align="right" src="./assets/docker16x16.svg" alt="Docker" width="32px"/>
 <img align="right" src="./assets/bootstrap.svg" alt="Bootstrap" width="32px"/>
-Sistema de cadastro de jogadores, integrado com json e XML para gerar codinomes
+
+Sistema de cadastro de jogadores, integrado com json e XML para gerar codinomes randomicos. Usado **SpringBoot**, **Docker** e **Bootstrap**.
 
 More: `+ Docker` `+ Tests` `+ Logging` `+ FlyWay Migration`
 
