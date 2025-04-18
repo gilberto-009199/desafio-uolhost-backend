@@ -6,7 +6,7 @@ ENV PORT=8080
 RUN mvn clean package
 
 # Server
-FROM openjdk:17-alphine
+FROM openjdk:17-alpine
 COPY --from=builder /usr/src/target/desafio_backend.jar /desafio_backend.jar
 WORKDIR /
 ENV PORT=8080

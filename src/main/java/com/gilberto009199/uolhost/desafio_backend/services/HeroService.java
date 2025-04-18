@@ -41,6 +41,10 @@ public class HeroService {
 
         var entity = HeroEntity.of(request);
 
+        var emailInUse = heroRepository.findByEmail(entity.getEmail());
+
+        if(emailInUse.isPresent())throw new RuntimeException("Email em uso!");
+
         var codename = codenameService.randomCodename(entity.getGrupo());
 
         entity.setCodename(codename);
