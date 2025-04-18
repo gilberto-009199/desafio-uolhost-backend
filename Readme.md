@@ -14,7 +14,11 @@ Sistema de cadastro de jogadores, integrado com json e XML para gerar codinomes 
 More: `+ Docker` `+ Tests` `+ Logging` `+ FlyWay Migration`
 
 
+## How Run:
 
+```shell
+$ docker compose up
+```
 
 
 Sobre o UOL HOST
