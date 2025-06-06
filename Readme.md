@@ -6,9 +6,9 @@
 
 <img src="home.png" width="512px" alt="Tela Inicial">
 
-<img align="right" src="./assets/spring16x16.svg" alt="Spring Boot" width="32px"/>
-<img align="right" src="./assets/docker16x16.svg" alt="Docker" width="32px"/>
-<img align="right" src="./assets/bootstrap.svg" alt="Bootstrap" width="32px"/>
+<img align="right" src="https://filedn.com/l3HMwWFeFPE7q4xHdixbsqH/github.assets/spring16x16.svg" alt="Spring Boot" width="32px"/>
+<img align="right" src="https://filedn.com/l3HMwWFeFPE7q4xHdixbsqH/github.assets/docker16x16.svg" alt="Docker" width="32px"/>
+<img align="right" src="https://filedn.com/l3HMwWFeFPE7q4xHdixbsqH/github.assets/bootstrap.svg" alt="Bootstrap" width="32px"/>
 
 Sistema de cadastro de jogadores, integrado com json e XML para gerar codinomes randomicos. Usado **SpringBoot**, **Docker** e **Bootstrap**.
 
