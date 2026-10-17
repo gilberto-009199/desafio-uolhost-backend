@@ -1,8 +1,10 @@
 #!/bin/sh
 
-# AZURE LIXO!!!
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-chmod +x mvnw
+echo "Executando a partir de: $SCRIPT_DIR"
 
-./mvnw spring-boot:run \
+chmod +x "$SCRIPT_DIR/mvnw"
+
+"$SCRIPT_DIR/mvnw" spring-boot:run \
   -Dspring-boot.run.arguments="--server.port=${PORT}"
